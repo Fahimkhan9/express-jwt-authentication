@@ -28,7 +28,7 @@ module.exports.signup_get = (req, res) => {
   res.render("signup");
 };
 module.exports.login_get = (req, res) => {
-  res.render(" new login");
+  res.render("login");
 };
 module.exports.signup_post = async (req, res) => {
   const { email, password } = req.body;
