@@ -3,14 +3,14 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config({ path: "./config/.env" });
 const authRouter = require("./routes/authRoutes");
+const cookieParser = require("cookie-parser");
 const app = express();
 const port = 5000;
 
 // middleware
 app.use(express.static("public"));
-// app.use(cors());
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // view engine
 app.set("view engine", "ejs");
@@ -28,6 +28,5 @@ mongoose
 
 // routes
 app.get("/", (req, res) => res.render("home"));
-
 app.get("/smoothies", (req, res) => res.render("smoothies"));
 app.use(authRouter);
